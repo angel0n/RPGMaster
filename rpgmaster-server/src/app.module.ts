@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './features/users/users.module';
+import { AuthModule } from './features/auth/auth.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { UsersModule } from './features/users/users.module';
       migrations: [__dirname + '/migrations/**/*{.js,.ts}'],
       autoLoadEntities: true
     }),
-    UsersModule
+    UsersModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
