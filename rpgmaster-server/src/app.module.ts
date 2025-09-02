@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './features/users/users.module';
 
 @Module({
   imports: [
@@ -13,7 +14,11 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.TYPEORM_PASSWORD?.toString(),
       database: process.env.TYPEORM_DATABASE,
       synchronize: false,
-    })
+      entities: [__dirname + '/**/*.entity{.js,.ts}'],
+      migrations: [__dirname + '/migrations/**/*{.js,.ts}'],
+      autoLoadEntities: true
+    }),
+    UsersModule
   ],
   controllers: [],
   providers: [],
