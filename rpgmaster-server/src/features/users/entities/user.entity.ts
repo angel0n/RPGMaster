@@ -13,4 +13,10 @@ export class User {
     
     @Column({name: "userpassword"})
     userPassword: string
+
+    constructor(userName?: string, userEmail?: string, userPassword?: string) {
+        if(userName) this.userName = userName;
+        if(userEmail) this.userEmail = userEmail;
+        if(userPassword) this.userPassword = userPassword;
+    }
 }
