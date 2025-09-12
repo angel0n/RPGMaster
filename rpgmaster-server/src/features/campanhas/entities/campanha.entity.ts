@@ -1,5 +1,6 @@
+import { Personagem } from "../../personagens/entities/personagem.entity";
 import { User } from "../../users/entities/user.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("campanhas")
 export class Campanha {
@@ -12,6 +13,9 @@ export class Campanha {
     @ManyToOne(() => User, (user) => user.campanhas, {nullable: false, onDelete: "CASCADE"})
     @JoinColumn({name: "campanhauser", referencedColumnName: "userId", foreignKeyConstraintName: "fk_campanha_user"})
     campanhaUser: User;
+
+    @OneToMany(() => Personagem, (personagem) => personagem.personagemCampanha)
+    campanhaPersonagens: Personagem[];
 
     constructor(titulo?: string, user?: User) {
         if(titulo) this.campanhaTitulo = titulo;

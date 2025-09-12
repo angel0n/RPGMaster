@@ -6,6 +6,7 @@ import { AuthModule } from './features/auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './features/auth/auth.guard';
 import { CampanhasModule } from './features/campanhas/campanhas.module';
+import { PersonagensModule } from './features/personagens/personagens.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { CampanhasModule } from './features/campanhas/campanhas.module';
     }),
     UsersModule,
     AuthModule,
-    CampanhasModule
+    CampanhasModule,
+    PersonagensModule
   ],
   controllers: [],
   providers: [

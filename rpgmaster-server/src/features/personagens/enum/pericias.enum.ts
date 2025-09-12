@@ -1,0 +1,20 @@
+export enum Pericia {
+  ATLETISMO = "Atletismo",
+  ACROBACIA = "Acrobacia",
+  FURTIVIDADE = "Furtividade",
+  PRESTIDIGITACAO = "Prestidigitação",
+  ARCANISMO = "Arcanismo",
+  HISTORIA = "História",
+  INVESTIGACAO = "Investigação",
+  NATUREZA = "Natureza",
+  RELIGIAO = "Religião",
+  INTUICAO = "Intuição",
+  MEDICINA = "Medicina",
+  PERCEPCAO = "Percepção",
+  SOBREVIVENCIA = "Sobrevivência",
+  ADESTRAR_ANIMAIS = "Adestrar Animais",
+  ATUACAO = "Atuação",
+  ENGANACAO = "Enganação",
+  INTIMIDACAO = "Intimidação",
+  PERSUASAO = "Persuasão"
+}
