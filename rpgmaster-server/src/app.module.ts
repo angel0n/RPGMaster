@@ -5,6 +5,7 @@ import { UsersModule } from './features/users/users.module';
 import { AuthModule } from './features/auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './features/auth/auth.guard';
+import { CampanhasModule } from './features/campanhas/campanhas.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { AuthGuard } from './features/auth/auth.guard';
       autoLoadEntities: true
     }),
     UsersModule,
-    AuthModule
+    AuthModule,
+    CampanhasModule
   ],
   controllers: [],
   providers: [

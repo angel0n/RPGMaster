@@ -5,15 +5,19 @@ import { InvalidSomethingExceptionFilter } from './exceptions/filters/InvalidSom
 import { NotFoundExceptionFilter } from './exceptions/filters/NotFoundExceptionFilter';
 import { UnauthorizedExceptionFilter } from './exceptions/filters/UnauthorizedExceptionFilter';
 import { ValidationPipe } from '@nestjs/common';
+import { InternalServerErrorExceptionFilter } from './exceptions/filters/InternalServerErrorExceptionFilter';
 
 dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.useGlobalFilters(new InvalidSomethingExceptionFilter())
-  app.useGlobalFilters(new NotFoundExceptionFilter())
-  app.useGlobalFilters(new UnauthorizedExceptionFilter())
+  app.useGlobalFilters(
+    new InvalidSomethingExceptionFilter(),
+    new NotFoundExceptionFilter(),
+    new UnauthorizedExceptionFilter(),
+    new InternalServerErrorExceptionFilter()
+  )
 
   app.useGlobalPipes(new ValidationPipe({errorHttpStatusCode: 422}))
 

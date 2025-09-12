@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Campanha } from "../../campanhas/entities/campanha.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("users")
 export class User {
@@ -11,8 +12,11 @@ export class User {
     @Column({name: "useremail"})
     userEmail: string
     
-    @Column({name: "userpassword"})
+    @Column({name: "userpassword", select: false})
     userPassword: string
+
+    @OneToMany(() => Campanha, (campanha) => campanha.campanhaUser)
+    campanhas: Campanha[]
 
     constructor(userName?: string, userEmail?: string, userPassword?: string) {
         if(userName) this.userName = userName;
