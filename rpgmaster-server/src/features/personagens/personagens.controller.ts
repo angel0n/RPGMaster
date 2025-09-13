@@ -12,19 +12,14 @@ export class PersonagensController {
     return this.personagensService.create(createPersonagenDto);
   }
 
-  @Get()
-  findAll() {
-    return this.personagensService.findAll();
+  @Get('campanha/:id')
+  findAllByCampanha(@Param('id') id: string) {
+    return this.personagensService.findAllByCampanha(+id);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.personagensService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePersonagenDto: UpdatePersonagenDto) {
-    return this.personagensService.update(+id, updatePersonagenDto);
   }
 
   @Delete(':id')

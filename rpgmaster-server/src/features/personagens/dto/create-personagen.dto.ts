@@ -2,6 +2,8 @@ import { IsArray, IsEnum, IsNotEmpty, IsNumber, IsPositive, IsString, Max, Min }
 import { Pericia } from "../enum/pericias.enum";
 
 export class CreatePersonagenDto {
+    @IsNumber()
+    personagemCampanha: number
     @IsString()
     @IsNotEmpty()
     personagemNome: string;

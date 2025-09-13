@@ -8,5 +8,6 @@ import { Campanha } from './entities/campanha.entity';
   imports: [TypeOrmModule.forFeature([Campanha])],
   controllers: [CampanhasController],
   providers: [CampanhasService],
+  exports:[CampanhasService]
 })
 export class CampanhasModule {}

@@ -43,4 +43,8 @@ export class Personagem {
     @ManyToOne(() => Campanha, {nullable: false, onDelete: "CASCADE"})
     @JoinColumn({name: "personagemcampanha", referencedColumnName: "campanhaId", foreignKeyConstraintName: "fk_personagem_campanha"})
     personagemCampanha: Campanha
+
+    constructor(init?: Partial<Personagem>) {
+        Object.assign(this, init);
+    }
 }

@@ -35,9 +35,9 @@ export class CampanhasService {
   }
 
   async findOne(id: number) {
-    const exist = await this.campanhaRepository.exists({ where: { campanhaId: id } });
-    if(!exist) throw new NotFoundException(`A campanha procurada não existe.`);
-    return await this.campanhaRepository.findOne({ relations: { campanhaUser: true } , where: { campanhaId: id } });
+    const campanha = await this.campanhaRepository.findOne({ relations: { campanhaUser: true } , where: { campanhaId: id } });;
+    if(campanha == null) throw new NotFoundException(`A campanha procurada não existe.`);
+    return campanha;
   }
 
   async remove(id: number) {

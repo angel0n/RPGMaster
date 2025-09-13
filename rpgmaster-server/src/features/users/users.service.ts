@@ -34,7 +34,7 @@ export class UsersService {
 
 
   async login(loginDto: LoginDto) {
-    const user = await this.userRepo.findOneBy({userEmail: loginDto.email})
+    const user = await this.userRepo.findOne({select: { userPassword: true, userId: true, userName: true }, where: {userEmail: loginDto.email}})
     if(user == null) throw new NotFoundException("Usuario não localizado.")
     
     const correctPassword = await this.authService.comparePasswords(loginDto.password,user.userPassword);
